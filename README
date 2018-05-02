@@ -1,3 +1,6 @@
+0. 建立 virtualenv，可以使用 python3 -m venv 或是 pipenv 建立。
+   以下操作皆在各自獨立的 virtualenv 下執行
+
 執行範例專案：
 1.切至專案目錄
 2.python setup.py develop
