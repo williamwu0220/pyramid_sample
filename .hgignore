@@ -1,0 +1,6 @@
+syntax: glob
+__pycache__
+development.ini
+*.egg-info
+*.cache
+*.lock

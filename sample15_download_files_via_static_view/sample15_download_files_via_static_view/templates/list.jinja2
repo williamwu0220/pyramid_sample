@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>list files</title>
+</head>
+<body>
+<p><a href="{{ request.route_path('home') }}">上傳檔案</a></p>
+<p>
+  <ul>
+    {% for file in files %}
+      <li><a href="{{ request.static_path(file) }}">{{ file }}</a></li>
+    {% endfor %}
+  </ul>
+</p>
+</body>
+</html>

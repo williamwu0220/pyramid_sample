@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>File Upload Sample</title>
+    </head>
+    <body>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% if form['file'].error %}{{ form['file'].errormsg }}{% endif %}
+            {{ form['file'].serialize()|safe }}
+            <input type="submit" value="送出" name="submit" />
+        </form>
+    </body>
+</html>

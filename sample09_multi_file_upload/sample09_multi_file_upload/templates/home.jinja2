@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>多檔上傳</title>
+</head>
+<body>
+    <form id="form1" action="" method="post" enctype="multipart/form-data">
+        <label for="file1">可選多檔</label> <input id="file1" multiple="multiple" name="file1" type="file">
+        <hr />
+
+        <label for="file2">單一檔案</label> <input id="file2" name="file2" type="file">
+        <hr />
+
+        <label for="file3">單一檔案</label> <input id="file3" name="file3" type="file">
+        <hr />
+
+        <br />
+    </form>
+    <hr />
+    <br />
+    <form id="form2" action="" method="post" enctype="multipart/form-data">
+        {% if form.file1.errors %}
+            {% for error in form.file1.errors %}
+            {{ error }}<br />
+            {% endfor %}
+        {% endif %}
+        {{ form.file1.label }} {{ form.file1(multiple='multiple') }}
+        {{ str_test_1 }}
+        <hr />
+
+        {% if form.file2.errors %}
+            {% for error in form.file2.errors %}
+            {{ error }}<br />
+            {% endfor %}
+        {% endif %}
+        {{ form.file2.label }} {{ form.file2 }}
+        {{ str_test_2 }}
+        {{ str_test_2_file }}
+        <hr />
+
+        {% if form.file3.errors %}
+            {% for error in form.file3.errors %}
+            {{ error }}<br />
+            {% endfor %}
+        {% endif %}
+        {{ form.file3.label }} {{ form.file3 }}
+        {{ str_test_3 }}
+        {{ str_test_3_file }}
+        <hr />
+
+        <br />
+        {{ str_message }}
+        <input type="submit" value="上傳檔案">
+    </form>
+    <script src="{{ request.static_url('sample09_multi_file_upload:static/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("#form1 #file1").on("change", function() {
+                $("#form2 #file1").replaceWith($("#form1 #file1").clone());
+            });
+
+            $("#form1 #file2").on("change", function() {
+                $("#form2 #file2").replaceWith($("#form1 #file2").clone());
+            });
+
+            $("#form1 #file3").on("change", function() {
+                $("#form2 #file3").replaceWith($("#form1 #file3").clone());
+            });
+
+        }); // end of $(document).ready(function()
+    </script>
+</body>
+</html>

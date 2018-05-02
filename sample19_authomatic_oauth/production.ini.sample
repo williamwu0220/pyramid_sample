@@ -1,0 +1,73 @@
+###
+# app configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/environment.html
+###
+
+[app:main]
+use = egg:sample19_authomatic_oauth
+
+pyramid.reload_templates = false
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+
+# activate some useful filters of jinja2
+jinja2.filters =
+    route_url = pyramid_jinja2.filters:route_url_filter
+    static_url = pyramid_jinja2.filters:static_url_filter
+    route_path = pyramid_jinja2.filters:route_path_filter
+    static_path = pyramid_jinja2.filters:static_path_filter
+
+# google oauth
+google.key =
+google.secret =
+
+# facebook oauth
+facebook.key =
+facebook.secret =
+
+# session settings
+#
+# using builtin session mechanism
+#sessions.secret = a6ce55db56f08986e6a2da1b4da02cbab8101f10
+
+###
+# wsgi server configuration
+###
+
+[server:main]
+use = egg:waitress#main
+host = 0.0.0.0
+port = 6543
+
+###
+# logging configuration
+# http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/logging.html
+###
+
+[loggers]
+keys = root, sample19_authomatic_oauth
+
+[handlers]
+keys = console
+
+[formatters]
+keys = generic
+
+[logger_root]
+level = WARN
+handlers = console
+
+[logger_sample19_authomatic_oauth]
+level = WARN
+handlers =
+qualname = sample19_authomatic_oauth
+
+[handler_console]
+class = StreamHandler
+args = (sys.stderr,)
+level = NOTSET
+formatter = generic
+
+[formatter_generic]
+format = %(asctime)s %(levelname)-5.5s [%(name)s][%(threadName)s] %(message)s

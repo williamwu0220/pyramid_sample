@@ -1,0 +1,18 @@
+<html>
+<head>
+    <title>上傳檔案</title>
+</head>
+<body>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% for each_error in form.file.errors %}
+        {{ each_error }}<br />
+    {% endfor %}
+    {{ form.file.label }} {{ form.file }}<br />
+    {% for each_error in form.files.errors %}
+        {{ each_error }}<br />
+    {% endfor %}
+    {{ form.files.label }} {{ form.files }}<br />
+    {{ form.submit }}
+</form>
+</body>
+</html>

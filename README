@@ -1,0 +1,18 @@
+執行範例專案：
+1.切至專案目錄
+2.python setup.py develop
+3.pserve development.ini
+  or
+  # 判斷執行中若有更新程式，自動 reload server
+  pserve development.ini --reload
+
+範例專案簡介：
+sample01: 將樣板換成 jinja2，並用瀏覽器瀏覽首頁時顯示 hello pyramid
+sample02: 依指定路徑顯示對應訊息
+sample03: 提供一個表單可以輸入兩個整數，按下送出後，顯示兩個整數相加的結果
+sample04: 有個測試頁面必須要登入後才可以觀看；沒登入的話瀏覽該頁面會顯示沒有權限
+sample05: 示範 pyramid 如何使用 deform 來完成表單驗證
+sample06: 輸入資料表單，新增資料到 sqlite3 資料庫中
+sample07: 上傳純文字檔，並儲存之
+sample08_mailer: 測試 pyramid_mailer 的功能
+sample09_multi_file_upload: 測試多檔上傳，須先在 static 目錄下建立 posimage 子目錄

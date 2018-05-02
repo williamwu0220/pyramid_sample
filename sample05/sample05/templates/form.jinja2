@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Deform test</title>
+    </head>
+    <body>
+        <form action="" method="post">
+            {% if form['name'].error %}需要輸入姓名欄位{% endif %}<br />
+            {{ form['name'].serialize()|safe }}<br />
+            {% if form['age'].error %}年齡需介於 1 ~ 120 之間{% endif %}<br />
+            {{ form['age'].serialize()|safe }}<br />
+            <input type="submit" name="submit" value="送出" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,2 @@
+This project has a test page, but you have to login by authorized information before to check it out,
+or you will get a warning message which informs you that you have no right to access the test page.

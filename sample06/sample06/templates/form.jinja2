@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Add info</title>
+    </head>
+    <body>
+        <form action="" method="post">
+            {% if form['name'].error %}需要輸入姓名{% endif %}<br />
+            {{ form['name'].serialize()|safe }}
+            {% if form['age'].error %}需要輸入年齡{% endif %}<br />
+            {{ form['age'].serialize()|safe }}
+            <input type="submit" name="submit" value="送出" />
+        </form>
+    </body>
+</html>

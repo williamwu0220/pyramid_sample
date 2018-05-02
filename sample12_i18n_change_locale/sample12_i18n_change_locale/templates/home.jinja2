@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ _('test i18n') }}</title>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+{{ _('hello pyramid') }}<br />
+<form id="theForm" action='' method='POST'>
+    {{ form.locale.label }}<br />
+	{{ request.cookies['_LOCALE_'] }}
+    <select id="selLocale" name="locale">
+    {% for sub_locale in form.locale %}
+        {% if sub_locale.data == request.cookies['_LOCALE_'] %}
+			<option value="{{ sub_locale.data }}" selected>{{ sub_locale.label }}</option>
+        {% else %}
+			{{ sub_locale }}
+        {% endif %}
+    {% endfor %}
+    </select>
+    <input type='submit' value={{ _('submit') }} />
+</form>
+<br />
+{{ _('author name') }}: {{ author }}
+<br />
+{{ _('author name2') }}: {{ author2 }}
+
+<script>
+	$("#selLocale").change(function() {
+		$("#theForm").submit();
+	});
+</script>
+
+</body>
+</html>

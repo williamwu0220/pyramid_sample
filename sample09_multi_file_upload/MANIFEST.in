@@ -1,0 +1,2 @@
+include *.txt *.ini *.cfg *.rst
+recursive-include sample09_multi_file_upload *.ico *.png *.css *.gif *.jpg *.pt *.txt *.mak *.mako *.js *.html *.xml
